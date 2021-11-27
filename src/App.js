@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import Index from './routes/Index'
+import Header from './shared/Header'
 
 export default function App() {
     return (
-        <BrowserRouter>
-            <Index/>
-        </BrowserRouter>
+        <Fragment>
+            <BrowserRouter>
+                <Header/>
+                <Index/>
+            </BrowserRouter>
+        </Fragment>
     )
 }

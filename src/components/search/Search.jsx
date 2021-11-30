@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import ListCharacters from '../ListCharacters/ListCharacters';
 
-export default function Search() {
+export default function Search({ setActualTeam, teams }) {
 
     const [characters, setCharacters] = useState([]);
 
@@ -27,6 +27,10 @@ export default function Search() {
       },
     });
 
+    const updateTeam = (team, character) => {
+      
+    }
+
     return (
       <Fragment>
         <form onSubmit={formik.handleSubmit} className="d-flex mx-4">
@@ -42,7 +46,7 @@ export default function Search() {
           {/* <button type="submit">Submit</button> */}
           <button className="btn btn-outline-success" type="submit" >Buscar</button>
         </form>
-        <ListCharacters searchResultArray={characters} />
+        <ListCharacters searchResultArray={characters} setActualTeam={setActualTeam} teams={teams} />
       </Fragment>
     );
 }

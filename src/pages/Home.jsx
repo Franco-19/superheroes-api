@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 // components
 // import Search from '../components/search/Search';
 
-export default function Home() {
+export default function Home({ teams }) {
 
-    const [teams, setTeams] = useState([]);
+    // const [teams, setTeams] = useState([]);
 
     // const teams = [
     //     {
@@ -35,11 +35,23 @@ export default function Home() {
     //         <p>No existe nigún equipo actualmente</p>
     //     )
     // }
-
+    // const ListTeams = () => {
+    //     teams.map((team) => {
+    //         return(
+    //             <ul>
+    //                 <li>{team}</li>
+    //             </ul>
+    //         )
+    //     })
+    // }
   
     if(teams.length !== 0){
         return(
-            <p>Mostrando equipos</p>
+            <div>
+                <p>Mostrando equipos</p>
+                {/* <ListTeams/> */}
+                <button onClick={() => console.log(teams)} >consultar estado</button>
+            </div>
         )
     }
 

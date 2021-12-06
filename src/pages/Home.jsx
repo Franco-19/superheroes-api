@@ -3,17 +3,10 @@ import { Link } from 'react-router-dom';
 
 // components
 // import Search from '../components/search/Search';
+import CharacterBadge from '../components/CharacterBadge/CharacterBadge';
+import StatsBadge from '../components/StatsBadge/StatsBadge';
 
 export default function Home({ teams }) {
-
-    // const [teams, setTeams] = useState([]);
-
-    // const teams = [
-    //     {
-    //         name: 'avengers',
-    //         members: 'Hulk; IronMan; Thor; Capitan America;'
-    //     }
-    // ]
 
     const createTeam = () => {
         // this function should create a team
@@ -30,27 +23,26 @@ export default function Home({ teams }) {
         return
     }
 
-    // if(teams.length == 0){
-    //     return (
-    //         <p>No existe nigún equipo actualmente</p>
-    //     )
-    // }
-    // const ListTeams = () => {
-    //     teams.map((team) => {
-    //         return(
-    //             <ul>
-    //                 <li>{team}</li>
-    //             </ul>
-    //         )
-    //     })
-    // }
-  
     if(teams.length !== 0){
         return(
-            <div>
-                <p>Mostrando equipos</p>
-                {/* <ListTeams/> */}
-                <button onClick={() => console.log(teams)} >consultar estado</button>
+            <div className="">
+                <p>Mostrando equipo</p>
+                <p>Total Stats!</p>
+                <StatsBadge teams={teams} />
+                <div className="container mt-3">
+                    <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4">
+                        {
+                            teams.map((team) => {
+                                return(
+                                    <div className="col">
+                                        <CharacterBadge characterData={team} addButton={false} />
+                                    </div>
+                                )
+                            })
+                        }
+                        <button onClick={() => console.log(teams)} >consultar estado</button>
+                    </div>
+                </div>
             </div>
         )
     }

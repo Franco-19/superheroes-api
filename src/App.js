@@ -1,16 +1,22 @@
-import React, { Fragment } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React, { Fragment, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import Index from './routes/Index'
-import Header from './shared/Header'
+import Index from "./routes/Index";
+import Header from "./shared/Header";
 
 export default function App() {
-    return (
-        <Fragment>
-            <BrowserRouter>
-                <Header/>
-                <Index/>
-            </BrowserRouter>
-        </Fragment>
-    )
+  const [inHome, setInHome] = useState(true);
+
+  const handleHomeState = () => {
+      setInHome(true);
+  }
+
+  return (
+    <Fragment>
+      <BrowserRouter>
+        <Header />
+        <Index />
+      </BrowserRouter>
+    </Fragment>
+  );
 }

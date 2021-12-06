@@ -8,17 +8,17 @@ import CreateTeam from '../pages/CreateTeam';
 
 function App() {
 
-  const [teams, setTeams] = useState([]);
+  const [team, setTeam] = useState([]);
 
   const handleCreatedTeam = (actualTeam) => {
-    setTeams(actualTeam)
+    setTeam(actualTeam)
   }
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home teams={teams} />} />
-        <Route path="/create" element={<CreateTeam setActualTeam={handleCreatedTeam} teams={teams} />} />
+        <Route path="/" element={<Home teams={team} />} />
+        <Route path="/create" element={<CreateTeam setActualTeam={handleCreatedTeam} teams={team} />} />
       </Routes>
     </div>
   );

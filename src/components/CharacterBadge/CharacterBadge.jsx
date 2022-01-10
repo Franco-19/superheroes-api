@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 
 import ModalCharacter from "../ModalCharacter/ModalCharacter";
 
@@ -25,11 +27,16 @@ export default function CharacterBadge({
     )
   };
 
+  // const comprobeRoute = () => {
+  //   let location = useLocation();
+  //   if(location.pathname === '/'){
+  //     console.log('estamos en root');
+  //   }
+  // }
+
   return (
     <div className="card mb-3">
       <div className="row g-0">
-        {/* <div >
-          </div> */}
         <img
           src={characterData.image.url}
           className="card-img-top"
@@ -39,12 +46,6 @@ export default function CharacterBadge({
           <div className="card-body">
             <h5 className="card-title">{characterData.name}</h5>
             <AddButton />
-            {/* <button
-              className="btn btn-primary m-1"
-              onClick={addCharacterToTeam}
-            >
-              Agregar
-            </button> */}
             <button
               className="btn btn-secondary m-1"
               data-bs-toggle="modal"
